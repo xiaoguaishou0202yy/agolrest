@@ -16,8 +16,8 @@
       "esri/config", 
       "esri/Map", 
       "esri/views/MapView"
-    ], 
-      function(esriConfig, Map, MapView) {
+    ], function(esriConfig, Map, MapView) {
+
         esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
         const map = new Map({ 
           basemap: "arcgis-topographic" // Basemap layer service 
@@ -29,6 +29,7 @@
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
+        
       });  
   </script>
 
