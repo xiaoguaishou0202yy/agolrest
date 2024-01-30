@@ -15,8 +15,10 @@
     require([
       "esri/config", 
       "esri/Map", 
-      "esri/views/MapView"
-    ], function(esriConfig, Map, MapView) {
+      "esri/views/MapView",
+      "esri/widgets/BasemapGallery"
+    ], function(esriConfig, Map, MapView, BasemapGallery) {
+
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
         basemap: "arcgis-navigation-night" // Basemap layer 
@@ -25,17 +27,17 @@
       const view = new MapView({
         map: map,
         center: [120.5, 31.2], // Longitude, latitude
-        zoom: 400, // Zoom level
+        zoom: 10, // Zoom level
         container: "viewDiv" // Div element
       });
 
-    let basemapGallery = new BasemapGallery({
-      view: view
-    });
-    // Add widget to the top right corner of the view
-    view.ui.add(basemapGallery, {
-      position: "top-right"
-    });
+      let basemapGallery = new BasemapGallery({
+        view: view
+      });
+      //Add widget to the top right corner of the view
+      view.ui.add(basemapGallery, {
+        position: "top-right"
+      });
 
     });  
   </script>
