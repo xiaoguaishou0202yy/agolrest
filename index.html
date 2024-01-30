@@ -19,8 +19,7 @@
       "esri/widgets/BasemapGallery",
       "esri/widgets/Locate",
       "esri/widgets/Search",
-      "esri/widgets/Search/LocatorSearchSource"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, LocatorSearchSource) {
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
@@ -30,7 +29,7 @@
       const view = new MapView({
         map: map,
         center: [120.5, 31.2], // Longitude, latitude
-        zoom: 1200, // Zoom level
+        zoom: 24000, // Zoom level
         container: "viewDiv" // Div element
       });
 
