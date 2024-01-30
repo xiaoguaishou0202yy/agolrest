@@ -18,8 +18,9 @@
       "esri/views/MapView",
       "esri/widgets/BasemapGallery",
       "esri/widgets/Locate",
-      "esri/widgets/Search"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search) {
+      "esri/widgets/Search",
+      "esri/widgets/Search/LocatorSearchSource"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, LocatorSearchSource) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
@@ -29,7 +30,7 @@
       const view = new MapView({
         map: map,
         center: [120.5, 31.2], // Longitude, latitude
-        zoom: 400, // Zoom level
+        zoom: 20, // Zoom level
         container: "viewDiv" // Div element
       });
 
@@ -50,10 +51,9 @@
         position: "top-left"
       });
 
-
+d
       const searchWidget = new Search({
         view: view,
-        container:basemapGalleryDiv
       });
       // Adds the search widget below other elements in
       // the top left corner of the view
@@ -82,7 +82,6 @@
 <body>
   <!--the div to displays the map-->
   <div id="viewDiv"></div> 
-  <div id="basemapGalleryDiv"></div>
 </body>
 
 </html>
