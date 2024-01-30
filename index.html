@@ -52,7 +52,8 @@
 
 
       const searchWidget = new Search({
-        view: view
+        view: view,
+        container:basemapGalleryDiv
       });
       // Adds the search widget below other elements in
       // the top left corner of the view
@@ -81,6 +82,7 @@
 <body>
   <!--the div to displays the map-->
   <div id="viewDiv"></div> 
+  <div id="basemapGalleryDiv"></div>
 </body>
 
 </html>
