@@ -24,7 +24,7 @@
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
-        basemap: "arcgis-navigation-night" // Basemap layer 
+        basemap: "dark-gray-vector" // Basemap layer 
       });
       
       const view = new MapView({
@@ -55,8 +55,6 @@
         view: view,        
       });
 
-      // Adds the search widget below other elements in
-      // the top left corner of the view
       view.ui.add(searchWidget, {
         position: "top-left",
         index: 2
