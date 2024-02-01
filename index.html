@@ -53,28 +53,46 @@
 
       const searchWidget = new Search({
         view: view,
+        includeDefaultSources: false,
         sources: [{
-          name: "apiKey locator",
-          placeholder: "Example: Shanghai",
-          apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn",
-          url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer",
-          sutoNavigate: true,
-          zoom: 500000
-        }]
+          layer: featureLayerDistricts,
+          searchFields: ["DISTRICTID"],
+          displayField: "DISTRICTID",
+          exactMatch: false,
+          outFields: ["DISTRICTID", "NAME", "PARTY"],
+          name: "Congressional Districts",
+          placeholder: "Example: 3708"
+        }, {
+          layer: featureLayerSenators,
+          searchFields: ["Name", "Party"],
+          suggestionTemplate: "{Name}, Party: {Party}",
+          exactMatch: false,
+          outFields: ["*"],
+          placeholder: "Example: Casey",
+          name: "Senators",
+          zoomScale: 500000,
+          resultSymbol: {
+            type: "picture-marker", // autocasts as new PictureMarkerSymbol()
+            url: "https://developers.arcgis.com/javascript/latest//sample-code/widgets-search-multiplesource/live/images/senate.png",
+            height: 36,
+            width: 36
+          }
+        }, {
+          name: "ArcGIS World Geocoding Service",
+          placeholder: "Example: Nuuk, GRL",
+          singleLineFieldName: "SingleLine",
+          url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+        }],
+        autoNavigator: true
         
-
       });
+
       // Adds the search widget below other elements in
       // the top left corner of the view
       view.ui.add(searchWidget, {
         position: "top-left",
         index: 0
       });
-
-      // Default sources[] when sources is not specified
-
-
-
 
     });  
 
