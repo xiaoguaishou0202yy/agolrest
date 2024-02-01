@@ -34,7 +34,13 @@
         container: "viewDiv" // Div element
       });
 
-
+      let basemapGallery = new BasemapGallery({
+        view: view
+      });
+      //Add widget to the top right corner of the view
+      view.ui.add(basemapGallery, {
+        position: "top-right"
+      });
 
       const locateBtn = new Locate({
         view: view
@@ -46,38 +52,7 @@
       });
 
       const searchWidget = new Search({
-        view: view,
-        includeDefaultSources: false,
-        sources: [{
-          layer: featureLayerDistricts,
-          searchFields: ["DISTRICTID"],
-          displayField: "DISTRICTID",
-          exactMatch: false,
-          outFields: ["DISTRICTID", "NAME", "PARTY"],
-          name: "Congressional Districts",
-          placeholder: "Example: 3708"
-        }, {
-          layer: featureLayerSenators,
-          searchFields: ["Name", "Party"],
-          suggestionTemplate: "{Name}, Party: {Party}",
-          exactMatch: false,
-          outFields: ["*"],
-          placeholder: "Example: Casey",
-          name: "Senators",
-          zoomScale: 500000,
-          resultSymbol: {
-            type: "picture-marker", // autocasts as new PictureMarkerSymbol()
-            url: "https://developers.arcgis.com/javascript/latest//sample-code/widgets-search-multiplesource/live/images/senate.png",
-            height: 36,
-            width: 36
-          }
-        }, {
-          name: "ArcGIS World Geocoding Service",
-          placeholder: "Example: Nuuk, GRL",
-          singleLineFieldName: "SingleLine",
-          url: "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer"
-        }],
-        
+        view: view,        
       });
 
       // Adds the search widget below other elements in
