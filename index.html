@@ -22,8 +22,8 @@
       "esri/Graphic",
       "esri/layers/GraphicsLayer",
       "esri/geometry/Polyline",
-      ""
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline) {
+      "esri/geometry/Polygon"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
@@ -97,7 +97,8 @@
       const roadSymbol = {  
         type: "simple-line",  
         width: 2,
-        color: "white"
+        color: "white",
+        style: "solid"
       };
 
       const attributesLine1 = {
