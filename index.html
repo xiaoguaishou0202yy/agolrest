@@ -46,6 +46,7 @@
 
       const simpleMarkerSymbol = {  
         type: "simple-marker",  
+        style: "cross",
         color: [0, 0, 139],  // Color of blues rock
         outline: {  
           color: [255, 255, 255], // White  
@@ -53,9 +54,20 @@
         }  
       };
 
+      const popupTemplate = {
+        title: "{Name}",
+        content: "{Description}"
+      }
+      const attributes = {
+        Name: "Zhenhua Middle School",
+        Description: "Suzhou Zhenhua Middle School"
+      }
+
       const pointGraphic = new Graphic({  
         geometry: point,  
-        symbol: simpleMarkerSymbol  
+        symbol: simpleMarkerSymbol,
+        attributes: attributes,
+        popupTemplate: popupTemplate  
       });
 
       graphicsLayer.add(pointGraphic);
