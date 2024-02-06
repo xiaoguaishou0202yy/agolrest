@@ -28,7 +28,7 @@
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
-        basemap: "dark-grey-vector" // Basemap layer 
+        basemap: "dark-gray-vector" // Basemap layer 
       });
       
       const view = new MapView({
@@ -51,7 +51,11 @@
         type: "simple-marker",  
         style: "diamond",
         size: 8,
-        color: "Black",   
+        color: "white",  
+        outline: {  
+          color: "yellow",
+          width: 1
+        }  
       };
       const popupTemplate = {
         title: "{Name}",
@@ -83,7 +87,7 @@
       const polylineSymbol = {  
         type: "simple-line",  
         width: 2,
-        color: "black",
+        color: "white",
       };
       const attributesLine1 = {
         Name: "Xiangwang Road",
