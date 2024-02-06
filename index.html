@@ -146,6 +146,28 @@
       map.add(eduLayer);
 
 
+      //Imported data and another feature layer
+
+      // Define a pop-up for usaeduLayer
+      const popupHS = {
+        "title": "Healthsites",
+        "content": "<b>Name:</b> {name}<br><b>Opening Hours:</b> {opening_ho}<br>"
+      }
+
+      //adding the Const for the feature layer
+      const hsLayer = new FeatureLayer({
+      url: "https://uw-mad.maps.arcgis.com/home/item.html?id=4e20bb59299947e7bd1e15abe0c0a29d&view=service",
+
+      //adding the popup here
+      outFields: ["name","opening_ho"],
+      popupTemplate: popupHS
+      });
+
+      //adding the feature layer to the map
+      map.add(hsLayer);
+
+
+
       //Add basemapGallery
       let basemapGallery = new BasemapGallery({
         view: view
