@@ -13,11 +13,6 @@
 
   <script>  
 
-    dojoConfig = {
-      locale: "en",
-      parseOnLoad: false
-    };
-
     require([
       "esri/config", 
       "esri/Map", 
@@ -29,9 +24,8 @@
       "esri/layers/GraphicsLayer",
       "esri/geometry/Polyline",
       "esri/geometry/Polygon",
-      "esri/layers/FeatureLayer",
-      "esri/intl"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, intl) {
+      "esri/layers/FeatureLayer"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer) {
 
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
@@ -187,7 +181,7 @@
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
-          "url": "https://xiaoguaishou0202yy.github.io/agol/pharmacy/1x/outline_local_pharmacy_black_24dp.png",
+          "url": "https://xiaoguaishou0202yy.github.io/agol/pharmacy/1x/outline_medication_liquid_black_24dp.png",
           "width": "18px",
           "height": "18px"
         }
