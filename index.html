@@ -154,13 +154,24 @@
         "content": "<b>Type:</b> {amenity}<br><b>Opening Hours:</b> {opening_ho}<br>"
       }
 
+      //Set up the pharmacy icon
+      const pharmacyRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://xiaoguaishou0202yy.github.io/agol/pharmacy/1x/outline_local_pharmacy_black_24dp.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }      
+
       //adding the Const for the feature layer
       const hsLayer = new FeatureLayer({
-      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
-
-      //adding the popup here
-      outFields: ["amenity", "opening_ho"],
-      popupTemplate: popupHS
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
+        renderer: pharmacyRenderer,
+        //adding the popup here
+        outFields: ["amenity", "opening_ho"],
+        popupTemplate: popupHS
       });
 
       //adding the feature layer to the map
