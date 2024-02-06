@@ -17,7 +17,7 @@
       locale: "en",
       parseOnLoad: false
     };
-    
+
     require([
       "esri/config", 
       "esri/Map", 
@@ -194,7 +194,7 @@
       }      
 
       //adding the Const for the feature layer
-      const hsLayer = new FeatureLayer({
+      const pharLayer = new FeatureLayer({
         url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
         renderer: pharmacyRenderer,
         definitionExpression: "amenity='pharmacy'",
@@ -204,7 +204,32 @@
       });
 
       //adding the feature layer to the map
-      map.add(hsLayer);
+      map.add(pharLayer);
+
+
+      //Set up the hospital icon
+      const hospitalRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://xiaoguaishou0202yy.github.io/agol/hospital/1x/outline_local_hospital_black_24dp.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }      
+
+      //adding the Const for the feature layer
+      const hosLayer = new FeatureLayer({
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
+        renderer: hospitalRenderer,
+        definitionExpression: "amenity='hospital'",
+        //adding the popup here
+        outFields: ["amenity", "opening_ho"],
+        popupTemplate: popupHS
+      });
+
+      //adding the feature layer to the map
+      map.add(hosLayer);
 
 
 
