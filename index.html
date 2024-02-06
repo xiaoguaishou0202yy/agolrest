@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Hello, AGOL!</title>
   <meta charset="UTF-8" />
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.25/"></script>
   <!--adding the modules needed for a full screen map app-->
+
   <script>  
     require([
       "esri/config", 
@@ -23,9 +25,10 @@
       "esri/geometry/Polygon",
       "esri/layers/FeatureLayer"
     ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer) {
+
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
-        basemap: "dark-gray-vector" // Basemap layer 
+        basemap: "modern-antique-map" // Basemap layer 
       });
       
       const view = new MapView({
@@ -34,8 +37,10 @@
         zoom: 13, // Zoom level
         container: "viewDiv" // Div element
       });
+
       const graphicsLayer = new GraphicsLayer();  
       map.add(graphicsLayer);
+
       //Add a point
       const point = { //Create a point  
         type: "point",  
@@ -46,10 +51,7 @@
         type: "simple-marker",  
         style: "diamond",
         size: 8,
-        color: "white",  
-        outline: {  
-          color: "yellow",
-          width: 1
+        color: "black",  
         }  
       };
       const popupTemplate = {
@@ -67,8 +69,8 @@
         popupTemplate: popupTemplate  
       });
       graphicsLayer.add(pointGraphic);
+
       //Add Polyline
-      
       const polyline = {
         type: "polyline",
         hasZ: false,
@@ -82,7 +84,7 @@
       const polylineSymbol = {  
         type: "simple-line",  
         width: 2,
-        color: "white",
+        color: "black",
       };
       const attributesLine1 = {
         Name: "Xiangwang Road",
@@ -95,6 +97,7 @@
         popupTemplate: popupTemplate  
       });
       graphicsLayer.add(polylineGraphic);
+
       //Add polygon
       const polygon = {
         type: "polygon",
@@ -110,7 +113,7 @@
       }
       const polygonSymbol = {  
         type: "simple-fill",  
-        color: "white",
+        color: "purple",
       };
       const attributesPolygon1 = {
         Name: "Osmanthus Park",
@@ -134,6 +137,7 @@
       let basemapGallery = new BasemapGallery({
         view: view
       });
+
       //Add widget to the top right corner of the view
       view.ui.add(basemapGallery, {
         position: "top-right"
@@ -141,6 +145,7 @@
       const locateBtn = new Locate({
         view: view
       });
+
       // Add the locate widget to the top left corner of the view
       view.ui.add(locateBtn, {
         position: "top-left"
@@ -153,6 +158,7 @@
         index: 2
       });
     });  
+
   </script>
   <!--css to make a full screen map-->
   <style>  
@@ -165,9 +171,12 @@
       width: 100%; 
     }  
   </style> 
+
 </head>
+
 <body>
   <!--the div to displays the map-->
   <div id="viewDiv"></div> 
 </body>
+
 </html>
