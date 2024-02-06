@@ -80,23 +80,21 @@
 
       //Add Polyline
       
-      let paths = [  // first path
-          [120.6357,31.3015],
-          [120.6364,31.2961],
-        ];
-
-      let line = new Polyline({
+      const polyline = {
+        type: "polyline",
         hasZ: false,
         hasM: true,
-        paths: paths,
         spatialReference: { wkid: 4326 }
-      });
+        paths: [
+          [120.6357,31.3015],
+          [120.6364,31.2961]
+        ]
+      }
 
-      const roadSymbol = {  
+      const polylineSymbol = {  
         type: "simple-line",  
-        width: 8,
+        width: 4,
         color: "white",
-        style: "solid"
       };
 
       const attributesLine1 = {
@@ -104,14 +102,14 @@
         Description: "Xiangwang Road is a short road in a residential area"
       }
 
-      const lineGraphic = new Graphic({  
+      const polylineGraphic = new Graphic({  
         geometry: polyline,  
-        symbol: roadSymbol,
+        symbol: polylineSymbol,
         attributes: attributesLine1,
         popupTemplate: popupTemplate  
       });
 
-      view.graphicsLayer.add(lineGraphic);
+      graphicsLayer.add(polylineGraphic);
 
       //Add polygon
 
