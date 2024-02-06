@@ -22,8 +22,9 @@
       "esri/Graphic",
       "esri/layers/GraphicsLayer",
       "esri/geometry/Polyline",
-      "esri/geometry/Polygon"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon) {
+      "esri/geometry/Polygon",
+      "esri/layers/FeatureLayer"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
@@ -145,6 +146,11 @@
 
       graphicsLayer.add(polygonGraphic);
 
+      //Add feature layer
+      const usaeduLayer = new FeatureLayer({
+        url: "https://services-ap1.arcgis.com/iA7fZQOnjY9D67Zx/arcgis/rest/services/OSM_AS_Educational/FeatureServer
+      });
+      map.add(usaeduLayer);
 
 
       //Add basemapGallery
