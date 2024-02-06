@@ -21,7 +21,8 @@
       "esri/widgets/Search",
       "esri/Graphic",
       "esri/layers/GraphicsLayer",
-      "esri/geometry/Polyline"
+      "esri/geometry/Polyline",
+      ""
     ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
@@ -94,8 +95,8 @@
       });
 
       const roadSymbol = {  
-        type: "simple-marker",  
-        size: 8,
+        type: "simple-line",  
+        width: 2,
         color: "white"
       };
 
@@ -113,7 +114,7 @@
 
       graphicsLayer.add(lineGraphic);
 
-
+      //Add polygon
 
 
 
