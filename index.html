@@ -52,11 +52,11 @@
       const simpleMarkerSymbol = {  
         type: "simple-marker",  
         style: "diamond",
-        size: 12,
+        size: 8,
         color: "white",  
         outline: {  
           color: "yellow",
-          width: 0.5
+          width: 1
         }  
       };
 
@@ -80,11 +80,10 @@
 
       //Add Polyline
       
-      let paths = [
-        [  // first path
+      let paths = [  // first path
           [120.6357,31.3015],
           [120.6364,31.2961],
-        ]];
+        ];
 
       let line = new Polyline({
         hasZ: false,
@@ -112,7 +111,7 @@
         popupTemplate: popupTemplate  
       });
 
-      graphicsLayer.add(lineGraphic);
+      view.graphicsLayer.add(lineGraphic);
 
       //Add polygon
 
