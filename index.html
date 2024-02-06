@@ -5,11 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
-
   <!--calls for the arcgis api's CSS file and JS library-->
   <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.25/"></script>
-
   <!--adding the modules needed for a full screen map app-->
   <script>  
     require([
@@ -25,7 +23,6 @@
       "esri/geometry/Polygon",
       "esri/layers/FeatureLayer"
     ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer) {
-
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
         basemap: "dark-gray-vector" // Basemap layer 
@@ -37,30 +34,24 @@
         zoom: 13, // Zoom level
         container: "viewDiv" // Div element
       });
-
       const graphicsLayer = new GraphicsLayer();  
       map.add(graphicsLayer);
-
-
       //Add a point
-
       const point = { //Create a point  
         type: "point",  
         longitude: 120.6375,    //long lat of my secondary school
         latitude: 31.3002
       };
-
       const simpleMarkerSymbol = {  
         type: "simple-marker",  
         style: "diamond",
         size: 8,
-        color: "black",  
+        color: "white",  
         outline: {  
           color: "yellow",
           width: 1
         }  
       };
-
       const popupTemplate = {
         title: "{Name}",
         content: "{Description}"
@@ -69,16 +60,13 @@
         Name: "Zhenhua Middle School",
         Description: "Suzhou Zhenhua Middle School"
       }
-
       const pointGraphic = new Graphic({  
         geometry: point,  
         symbol: simpleMarkerSymbol,
         attributes: attributesPoint1,
         popupTemplate: popupTemplate  
       });
-
       graphicsLayer.add(pointGraphic);
-
       //Add Polyline
       
       const polyline = {
@@ -91,29 +79,23 @@
           [120.6364,31.2961]
         ]
       }
-
       const polylineSymbol = {  
         type: "simple-line",  
         width: 2,
-        color: "black",
+        color: "white",
       };
-
       const attributesLine1 = {
         Name: "Xiangwang Road",
         Description: "Xiangwang Road is a short road in a residential area"
       }
-
       const polylineGraphic = new Graphic({  
         geometry: polyline,  
         symbol: polylineSymbol,
         attributes: attributesLine1,
         popupTemplate: popupTemplate  
       });
-
       graphicsLayer.add(polylineGraphic);
-
       //Add polygon
-
       const polygon = {
         type: "polygon",
         hasZ: true,
@@ -126,44 +108,27 @@
           [120.6402, 31.2961],
         ]
       }
-
       const polygonSymbol = {  
         type: "simple-fill",  
-        color: "green",
+        color: "white",
       };
-
       const attributesPolygon1 = {
         Name: "Osmanthus Park",
         Description: "This park is full of osmanthus and is open to the public free of charge"
       }
-
       const polygonGraphic = new Graphic({  
         geometry: polygon,  
         symbol: polygonSymbol,
         attributes: attributesPolygon1,
         popupTemplate: popupTemplate  
       });
-
       graphicsLayer.add(polygonGraphic);
-
-
-      //Add popups for the features in the layer
-      // Define a pop-up for usaeduLayer
-      const popupEduAsia = {
-        "title": "EDUs",
-        "content": "<b>Name:</b> {name}<br><b>Fee:</b> {fee}<br><b>Website:</b> {website}<br>"
-      }
-
 
       //Add feature layer
       const usaeduLayer = new FeatureLayer({
-        url: "https://services-ap1.arcgis.com/iA7fZQOnjY9D67Zx/arcgis/rest/services/OSM_AS_Educational/FeatureServer",
-        //adding the popup here
-        outFields: ["name","fee","website"],
-        popupTemplate: popupEduA
-      });      
+        url: "https://services-ap1.arcgis.com/iA7fZQOnjY9D67Zx/arcgis/rest/services/OSM_AS_Educational/FeatureServer"
+      });
       map.add(usaeduLayer);
-      
 
       //Add basemapGallery
       let basemapGallery = new BasemapGallery({
@@ -173,30 +138,22 @@
       view.ui.add(basemapGallery, {
         position: "top-right"
       });
-
       const locateBtn = new Locate({
         view: view
       });
-
       // Add the locate widget to the top left corner of the view
       view.ui.add(locateBtn, {
         position: "top-left"
       });
-
       const searchWidget = new Search({
         view: view,        
       });
-
       view.ui.add(searchWidget, {
         position: "top-left",
         index: 2
       });
-
     });  
-
-
   </script>
-
   <!--css to make a full screen map-->
   <style>  
     html,  
@@ -208,12 +165,9 @@
       width: 100%; 
     }  
   </style> 
-
 </head>
-
 <body>
   <!--the div to displays the map-->
   <div id="viewDiv"></div> 
 </body>
-
 </html>
