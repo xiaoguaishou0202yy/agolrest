@@ -149,18 +149,18 @@
       //Imported data and another feature layer
 
       // Define a pop-up for usaeduLayer
-      //const popupHS = {
-        //"title": "Healthsites",
-        //"content": "<b>Name:</b> {name}<br><b>Opening Hours:</b> {opening_ho}<br>"
-      //}
+      const popupHS = {
+        "title": "Healthsites",
+        "content": "<b>Name:</b> {name}<br><b>Opening Hours:</b> {opening_ho}<br>"
+      }
 
       //adding the Const for the feature layer
       const hsLayer = new FeatureLayer({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
 
       //adding the popup here
-      //outFields: ["name","opening_ho"],
-      //popupTemplate: popupHS
+      outFields: ["name","opening_ho"],
+      popupTemplate: popupHS
       });
 
       //adding the feature layer to the map
