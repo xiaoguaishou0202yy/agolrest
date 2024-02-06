@@ -169,6 +169,7 @@
       const hsLayer = new FeatureLayer({
         url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
         renderer: pharmacyRenderer,
+        definitionExpression: "amenity='pharmacy'",
         //adding the popup here
         outFields: ["amenity", "opening_ho"],
         popupTemplate: popupHS
