@@ -12,6 +12,12 @@
   <!--adding the modules needed for a full screen map app-->
 
   <script>  
+
+    dojoConfig = {
+      locale: "en",
+      parseOnLoad: false
+    };
+    
     require([
       "esri/config", 
       "esri/Map", 
@@ -27,7 +33,6 @@
       "esri/intl"
     ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, intl) {
 
-      intl.setLocale("en-US");
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
