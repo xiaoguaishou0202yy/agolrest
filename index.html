@@ -151,7 +151,7 @@
       // Define a pop-up for usaeduLayer
       const popupHS = {
         "title": "Healthsites",
-        "content": "<b>Opening Hours:</b> {opening_ho}<br>"
+        "content": "<b>Type:</b> {amenity}<br><b>Opening Hours:</b> {opening_ho}<br>"
       }
 
       //adding the Const for the feature layer
@@ -159,7 +159,7 @@
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/china_healthsites_shp_R/FeatureServer",
 
       //adding the popup here
-      outFields: ["opening_ho"],
+      outFields: ["amenity", "opening_ho"],
       popupTemplate: popupHS
       });
 
