@@ -126,11 +126,25 @@
       });
       graphicsLayer.add(polygonGraphic);
 
-      //Add feature layer
-      const usaeduLayer = new FeatureLayer({
-        url: "https://services-ap1.arcgis.com/iA7fZQOnjY9D67Zx/arcgis/rest/services/OSM_AS_Educational/FeatureServer"
+
+      // Define a pop-up for usaeduLayer
+      const popupEduAsia = {
+        "title": "EDUs",
+        "content": "<b>Name:</b> {name}<br><b>Fee:</b> {fee}<br><b>Website:</b> {website}<br>"
+      }
+
+      //adding the Const for the feature layer
+      const eduLayer = new FeatureLayer({
+      url: "https://services-ap1.arcgis.com/iA7fZQOnjY9D67Zx/arcgis/rest/services/OSM_AS_Educational/FeatureServer",
+
+      //adding the popup here
+      outFields: ["name","fee","website"],
+      popupTemplate: popupEduAsia
       });
-      map.add(usaeduLayer);
+
+      //adding the feature layer to the map
+      map.add(eduLayer);
+
 
       //Add basemapGallery
       let basemapGallery = new BasemapGallery({
