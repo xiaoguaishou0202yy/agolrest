@@ -19,8 +19,9 @@
       "esri/widgets/BasemapGallery",
       "esri/widgets/Locate",
       "esri/widgets/Search",
-      "esri/widgets/Search/LocatorSearchSource"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, LocatorSearchSource) {
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
@@ -33,6 +34,31 @@
         zoom: 9, // Zoom level
         container: "viewDiv" // Div element
       });
+
+      const graphicsLayer = new GraphicsLayer();  
+      map.add(graphicsLayer);
+
+      const point = { //Create a point  
+        type: "point",  
+        longitude: 120.6375,    //long lat of my secondary school
+        latitude: 31.3002
+      };
+
+      const simpleMarkerSymbol = {  
+        type: "simple-marker",  
+        color: [0, 0, 139],  // Color of blues rock
+        outline: {  
+          color: [255, 255, 255], // White  
+          width: 1
+        }  
+      };
+
+      const pointGraphic = new Graphic({  
+        geometry: point,  
+        symbol: simpleMarkerSymbol  
+      });
+
+      graphicsLayer.add(pointGraphic);
 
       let basemapGallery = new BasemapGallery({
         view: view
