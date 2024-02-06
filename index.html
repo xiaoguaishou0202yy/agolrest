@@ -38,6 +38,9 @@
       const graphicsLayer = new GraphicsLayer();  
       map.add(graphicsLayer);
 
+
+      //Add a point
+
       const point = { //Create a point  
         type: "point",  
         longitude: 120.6375,    //long lat of my secondary school
@@ -47,6 +50,8 @@
       const simpleMarkerSymbol = {  
         type: "simple-marker",  
         style: "cross",
+        size: "12px",
+        
         color: [0, 0, 139],  // Color of blues rock
         outline: {  
           color: [255, 255, 255], // White  
