@@ -20,8 +20,9 @@
       "esri/widgets/Locate",
       "esri/widgets/Search",
       "esri/Graphic",
-      "esri/layers/GraphicsLayer"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer) {
+      "esri/layers/GraphicsLayer",
+      "esri/geometry/Polyline"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline) {
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
       const map = new Map({ 
@@ -50,12 +51,12 @@
       const simpleMarkerSymbol = {  
         type: "simple-marker",  
         style: "cross",
-        size: "12px",
+        size: 8,
         
-        color: [0, 0, 139],  // Color of blues rock
+        color: "white",  // Color of blues rock
         outline: {  
-          color: [255, 255, 255], // White  
-          width: 1
+          color: "yellow"
+          width: 0.5
         }  
       };
 
@@ -63,7 +64,7 @@
         title: "{Name}",
         content: "{Description}"
       }
-      const attributes = {
+      const attributesPoint1 = {
         Name: "Zhenhua Middle School",
         Description: "Suzhou Zhenhua Middle School"
       }
@@ -71,12 +72,53 @@
       const pointGraphic = new Graphic({  
         geometry: point,  
         symbol: simpleMarkerSymbol,
-        attributes: attributes,
+        attributes: attributesPoint1,
         popupTemplate: popupTemplate  
       });
 
       graphicsLayer.add(pointGraphic);
 
+      //Add Polyline
+      
+      let paths = [
+        [  // first path
+          [120.6357,31.3015],
+          [120.6364,31.2961],
+        ]];
+
+      let line = new Polyline({
+        hasZ: false,
+        hasM: true,
+        paths: paths,
+        spatialReference: { wkid: 4326 }
+      });
+
+      const roadSymbol = {  
+        type: "simple-marker",  
+        size: 8,
+        color: "white"
+      };
+
+      const attributesLine1 = {
+        Name: "Xiangwang Road",
+        Description: "Xiangwang Road is a short road in a residential area"
+      }
+
+      const lineGraphic = new Graphic({  
+        geometry: polyline,  
+        symbol: roadSymbol,
+        attributes: attributesLine1,
+        popupTemplate: popupTemplate  
+      });
+
+      graphicsLayer.add(lineGraphic);
+
+
+
+
+
+
+      //Add basemapGallery
       let basemapGallery = new BasemapGallery({
         view: view
       });
