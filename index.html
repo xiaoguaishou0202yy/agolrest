@@ -25,8 +25,9 @@
       "esri/geometry/Polyline",
       "esri/geometry/Polygon",
       "esri/layers/FeatureLayer",
-      "esri/widgets/Editor"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor) {
+      "esri/widgets/Editor",
+      "esri/widgets/Legend"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor, Legend) {
 
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
@@ -277,6 +278,11 @@
       // Add the widget to the view
       view.ui.add(editor, "top-left");
 
+      let legend = new Legend({
+        view: view
+      });
+
+      view.ui.add(legend, "bottom-right");
 
 
     });  
