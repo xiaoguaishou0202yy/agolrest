@@ -235,19 +235,10 @@
         view: view
       });
 
-
-
-      const bmExpand = new Expand({
-          view: view,
-          content: basemapGallery
-        });
-
-
-
-      // Add the expand instance to the ui
-
-      view.ui.add(bmExpand, "top-right");
-
+      //Add widget to the top right corner of the view
+      view.ui.add(basemapGallery, {
+        position: "top-right"
+      });
 
 
       const locateBtn = new Locate({
