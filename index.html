@@ -24,8 +24,9 @@
       "esri/layers/GraphicsLayer",
       "esri/geometry/Polyline",
       "esri/geometry/Polygon",
-      "esri/layers/FeatureLayer"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer) {
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Editor"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor) {
 
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
@@ -251,7 +252,35 @@
         position: "top-left",
         index: 0
       });
+
+      //adding the const for the feature layer
+      const mySchools = new FeatureLayer({
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/My_Schools/FeatureServer",
+        //adding the popup here
+        outFields: ["SchoolName"],
+      });
+
+      //adding the feature layer to the map
+      map.add(myAirports);
+
+      // Set the point layer's LayerInfo
+      const pointInfos = {
+        layer: mySchools
+      }
+
+      // Begin Editor constructor
+      const editor = new Editor({
+        view: view,
+        layerInfos: [pointInfos]
+      }); // End Editor constructor
+
+      // Add the widget to the view
+      view.ui.add(editor, "top-right");
+
+
+
     });  
+
 
   </script>
   <!--css to make a full screen map-->
