@@ -235,32 +235,27 @@
         view: view
       });
 
-      //Add widget to the top right corner of the view
-      view.ui.add(basemapGallery, {
-        position: "top-right"
+      const bmExpand = new Expand({
+        view: view,
+        content: basemapGallery
       });
 
-      const bmExpand = new Expand({
-          view: view,
-          content: basemapGallery
-        });
+      // close the expand whenever a basemap is selected
+      // on mobile devices
+      reactiveUtils.watch(
+        () => basemapGallery.activeBasemap,
+        () => {
+          const mobileSize = view.heightBreakpoint === "xsmall" || view.widthBreakpoint === "xsmall";
 
-        // close the expand whenever a basemap is selected
-        // on mobile devices
-        reactiveUtils.watch(
-          () => basemapGallery.activeBasemap,
-          () => {
-            const mobileSize = view.heightBreakpoint === "xsmall" || view.widthBreakpoint === "xsmall";
-
-            if (mobileSize) {
-              bmExpand.collapse();
-            }
+          if (mobileSize) {
+            bmExpand.collapse();
           }
-        );
+        }
+      );
 
-        // Add the expand instance to the ui
+      // Add the expand instance to the ui
 
-        view.ui.add(bmExpand, "top-right");
+      view.ui.add(bmExpand, "top-right");
 
 
 
