@@ -26,9 +26,8 @@
       "esri/geometry/Polygon",
       "esri/layers/FeatureLayer",
       "esri/widgets/Editor",
-      "esri/widgets/Legend",
-      "esri/widgets/Expend"
-    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor, Legend, Expand) {
+      "esri/widgets/Legend"
+    ], function(esriConfig, Map, MapView, BasemapGallery, Locate, Search, Graphic, GraphicsLayer, Polyline, Polygon, FeatureLayer, Editor, Legend) {
 
 
       esriConfig.apiKey = "AAPK79f2b239e4cf4dc6b664ef5b0c786f35ahNZJUd9dZ9-oWGmT3RwP1SPRv20ear1DypV76SqQhIwXkA9Ckk56ipfMgPSRUVn"
@@ -239,8 +238,6 @@
       view.ui.add(basemapGallery, {
         position: "top-right"
       });
-
-      
       const locateBtn = new Locate({
         view: view
       });
