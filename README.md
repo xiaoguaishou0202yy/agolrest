@@ -1,2 +1,2 @@
-# agol
-Code using esri js to access arcgis online data
+# agolrest
+Code using REST to make edits to my AGOL dataset
