@@ -235,23 +235,14 @@
         view: view
       });
 
+
+
       const bmExpand = new Expand({
-        view: view,
-        content: basemapGallery
-      });
+          view: view,
+          content: basemapGallery
+        });
 
-      // close the expand whenever a basemap is selected
-      // on mobile devices
-      reactiveUtils.watch(
-        () => basemapGallery.activeBasemap,
-        () => {
-          const mobileSize = view.heightBreakpoint === "xsmall" || view.widthBreakpoint === "xsmall";
 
-          if (mobileSize) {
-            bmExpand.collapse();
-          }
-        }
-      );
 
       // Add the expand instance to the ui
 
