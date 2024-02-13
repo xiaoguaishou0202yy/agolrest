@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Hello, AGOLREST!</title>
+  <title>Welcome to My Hometown!</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
@@ -236,7 +236,7 @@
 
       //Add widget to the top right corner of the view
       view.ui.add(basemapGallery, {
-        position: "top-right"
+        position: "bottom-left"
       });
       const locateBtn = new Locate({
         view: view
@@ -316,7 +316,7 @@
       }); // End Editor constructor
 
       // Add the widget to the view
-      view.ui.add(editor, "top-left");
+      view.ui.add(editor, "top-right");
 
       //legend
       let legend = new Legend({
