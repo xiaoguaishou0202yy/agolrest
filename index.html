@@ -254,10 +254,22 @@
         index: 0
       });
 
-      //adding the const for the feature layer
+
+      //Set up the MySchool icon
+      const MySchoolRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://xiaoguaishou0202yy.github.io/agolrest/black-24dp/1x/outline_maps_home_work_black_24dp.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }      
+
+      //adding the Const for the feature layer
       const mySchools = new FeatureLayer({
-      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/My_Schools/FeatureServer",
-        //adding the popup here
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/My_Schools/FeatureServer",
+        renderer: MySchoolRenderer,
         outFields: ["SchoolName"],
       });
 
@@ -278,10 +290,10 @@
       // Add the widget to the view
       view.ui.add(editor, "top-left");
 
+      //legend
       let legend = new Legend({
         view: view
       });
-
       view.ui.add(legend, "bottom-right");
 
 
