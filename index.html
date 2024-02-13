@@ -254,6 +254,12 @@
         index: 0
       });
 
+      // Define a pop-up for usaeduLayer
+      const popupMySchool = {
+        "title": "My Schools",
+        "content": "<b>Name:</b> {SchoolName}<br>"
+      }
+
 
       //Set up the MySchool icon
       const MySchoolRenderer = {
@@ -271,6 +277,7 @@
         url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/My_Schools/FeatureServer",
         renderer: MySchoolRenderer,
         outFields: ["SchoolName"],
+        popupTemplate: popupMySchool
       });
 
       //adding the feature layer to the map
